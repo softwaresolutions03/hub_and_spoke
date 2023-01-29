@@ -60,7 +60,7 @@ module "region_1-nsg" {
   region      = var.region
   rg-name     = var.rg-name
   environment = var.environment
-  subnet_id                 = module.region_1-vnet1.region-subnet-id
+  subnet_id   = module.region_1-vnet1.region-subnet-id
 }
 
 module "region_2-nsg" {
@@ -68,17 +68,17 @@ module "region_2-nsg" {
   region      = var.region_uk
   rg-name     = var.rg-name
   environment = var.environment
-  subnet_id                 = module.region_2-vnet1.region-subnet-id
+  subnet_id   = module.region_2-vnet1.region-subnet-id
 }
 
 module "virtual_wan" {
-  source      = "./modules/vwan"
-  lab-name = var.lab-name
-  region      = var.region
-  region_uk = var.region_uk
-  rg-name     = var.rg-name
-  environment = var.environment
-    vwan-region-hub_1-prefix_1 = "10.10.0.0/21"
+  source                       = "./modules/vwan"
+  lab-name                     = var.lab-name
+  region                       = var.region
+  region_uk                    = var.region_uk
+  rg-name                      = var.rg-name
+  environment                  = var.environment
+  vwan-region-hub_1-prefix_1   = "10.10.0.0/21"
   vwan-region_2-hub_1-prefix_1 = "10.20.0.0/21"
 }
 
